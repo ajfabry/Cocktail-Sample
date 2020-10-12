@@ -1,5 +1,4 @@
 function onVidyoClientLoaded(status) {
-    console.log("function called");
     switch (status.state) {
     case "READY":    // The library is operating normally              
         console.log("Ready to connect")
@@ -35,18 +34,14 @@ function connect(token, displayName) {
             token: token,
             displayName: displayName,
             resourceId: "DefaultRoom",
-            // Define handlers for connection events.
-            onSuccess: function()            {/* Connected */},
-            onFailure: function(reason)      {/* Failed */},
-            onDisconnected: function(reason) {/* Disconnected */}
         }).then(function(status) {
             if (status) {
-                console.log("ConnectCall Success");
+                console.log("Connection Success");
             } else {
-                console.error("ConnectCall Failed");
+                console.error("Connection Failed");
             }
         }).catch(function() {
-            console.error("ConnectCall Failed");
+            console.error("Connection Failed");
         });
     }).catch(function() {
         console.error("CreateVidyoConnector Failed");
